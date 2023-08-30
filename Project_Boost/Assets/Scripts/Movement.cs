@@ -7,9 +7,9 @@ public class Movement : MonoBehaviour
 
     // Sets thrust force being applied to rocket
     [SerializeField] float mainThrust = 100f;
+    [SerializeField] float turnSpeed = 100f;
     // Stores rocket's RigidBody component to apply movement to it
     Rigidbody rb;
-
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,6 @@ public class Movement : MonoBehaviour
         {
             // Calculates ammount of relative upwards force to apply relative to the time elapsed since previous frame
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
-            Debug.Log("Flying Up");
         } 
         // Stalls rocket and allows it to fall down again if not applying force
 
@@ -46,14 +45,23 @@ public class Movement : MonoBehaviour
         bool right = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
 
         // Turns left only if the right turn key is not pressed at the same time
-        if(left && !right){
-            Debug.Log("Turning Left");
+        if(left && !right)
+        {
+            // rotates oject to the left (based on camera view)
+            ApplyRotation(Vector3.back);
         } 
         // Turns right only if the left key is not pressed at the same time
         else if(right && !left)
         {
-            Debug.Log("Turning Right");
-        } 
+             // rotates oject to the right (based on camera view)
+            ApplyRotation(Vector3.forward);
+        }
+
+        // creates function for rotating object in a non frame dependant manner based on vector
+        void ApplyRotation(Vector3 turnVector)
+        {
+            transform.Rotate(turnVector * turnSpeed * Time.deltaTime);
+        }
 
     }
 }
