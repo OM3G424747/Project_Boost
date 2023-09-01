@@ -36,7 +36,6 @@ public class Movement : MonoBehaviour
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
         } 
         // Stalls rocket and allows it to fall down again if not applying force
-
     }
 
     void ProcessRotation()
@@ -53,14 +52,19 @@ public class Movement : MonoBehaviour
         // Turns right only if the left key is not pressed at the same time
         else if(right && !left)
         {
-             // rotates oject to the right (based on camera view)
+             // Rotates oject to the right (based on camera view)
             ApplyRotation(Vector3.forward);
         }
 
         // creates function for rotating object in a non frame dependant manner based on vector
         void ApplyRotation(Vector3 turnVector)
         {
+            // Freeze physics rotation to allow manual rotation
+            rb.freezeRotation = true;
+            // Rotate in direction selected by player
             transform.Rotate(turnVector * turnSpeed * Time.deltaTime);
+            // Unfreeze physics rotation to allow physics rotation again
+            rb.freezeRotation = false;
         }
 
     }
