@@ -8,13 +8,22 @@ public class Movement : MonoBehaviour
     // Sets thrust force being applied to rocket
     [SerializeField] float mainThrust = 100f;
     [SerializeField] float turnSpeed = 100f;
+    // Set Value to How quickly the rocket audio should ramp up to max
+    [SerializeField] float volumeIncrementRate = 1f;
+    float rocketSoundVolume = 0f;
+
     // Stores rocket's RigidBody component to apply movement to it
     Rigidbody rb;
+    AudioSource rocketSound;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rocketSound = GetComponent<AudioSource>();
+
+        // Sets rocket volume to 0 to avoid playing any audio at launch of game 
+        rocketSound.volume = rocketSoundVolume;
     }
 
     // Update is called once per frame
@@ -29,6 +38,9 @@ public class Movement : MonoBehaviour
         // Stores if the player hit the button for the rocket thrusters
         bool up = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space);
 
+        // Adjusts audio effect volume based on player input
+        AdjustVolume(up);
+
         // Thusts rocket in the direction its pointed
         if(up)
         {
@@ -36,6 +48,8 @@ public class Movement : MonoBehaviour
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
         } 
         // Stalls rocket and allows it to fall down again if not applying force
+
+        
     }
 
     void ProcessRotation()
@@ -67,5 +81,39 @@ public class Movement : MonoBehaviour
             rb.freezeRotation = false;
         }
 
+    }
+
+
+    void AdjustVolume(bool isActive)
+    {
+        // Sets ammount to increment while active or not active based on time 
+        float incrementAmmount = volumeIncrementRate * Time.deltaTime;
+
+        if(isActive)
+        {
+            // Checks if volume will go over the max limit to the cap it
+            if(rocketSoundVolume + incrementAmmount > 1)
+            {
+                rocketSoundVolume = 1;
+            }
+            else
+            {
+                rocketSoundVolume += incrementAmmount;
+            }
+        }
+        else
+        {
+            // Checks if volume will go under the max limit to the cap it
+            if(rocketSoundVolume - incrementAmmount < 0)
+            {
+                rocketSoundVolume = 0;
+            }
+            else
+            {
+                rocketSoundVolume -= incrementAmmount;
+            }
+        }
+        // Plays audio with new set level
+        rocketSound.volume = rocketSoundVolume;
     }
 }
