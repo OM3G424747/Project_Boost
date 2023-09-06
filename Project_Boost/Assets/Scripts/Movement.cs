@@ -46,6 +46,7 @@ public class Movement : MonoBehaviour
         {
             // Calculates ammount of relative upwards force to apply relative to the time elapsed since previous frame
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+            
         } 
         // Stalls rocket and allows it to fall down again if not applying force
 
@@ -113,7 +114,20 @@ public class Movement : MonoBehaviour
                 rocketSoundVolume -= incrementAmmount;
             }
         }
+        
         // Plays audio with new set level
         rocketSound.volume = rocketSoundVolume;
+        
+        // Pauses audio if it's no longer loud enough 
+        // Alternatively confirms if audio is not playing to play it
+        if(rocketSoundVolume != 0 && !rocketSound.isPlaying)
+        {
+            rocketSound.Play();
+        }
+        else if (rocketSoundVolume == 0 && rocketSound.isPlaying)
+        {
+            rocketSound.Pause();
+        }        
+
     }
 }
