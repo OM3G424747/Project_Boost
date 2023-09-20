@@ -1,0 +1,275 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.PlasticSCM.Editor.csproj": {}
+  },
+  "projects": {
+    "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.PlasticSCM.Editor.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.PlasticSCM.Editor.csproj",
+        "projectName": "Unity.PlasticSCM.Editor",
+        "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.PlasticSCM.Editor.csproj",
+        "packagesPath": "C:\\Users\\om3g4\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\om3g4\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.TestRunner.csproj": {
+                "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.TestRunner.csproj"
+              },
+              "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.UI.csproj": {
+                "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.UI.csproj"
+              },
+              "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj": {
+                "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj"
+              },
+              "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj": {
+                "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.TestRunner.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.TestRunner.csproj",
+        "projectName": "UnityEditor.TestRunner",
+        "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.TestRunner.csproj",
+        "packagesPath": "C:\\Users\\om3g4\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\om3g4\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj": {
+                "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.UI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.UI.csproj",
+        "projectName": "UnityEditor.UI",
+        "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.UI.csproj",
+        "packagesPath": "C:\\Users\\om3g4\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\om3g4\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.TestRunner.csproj": {
+                "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.TestRunner.csproj"
+              },
+              "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj": {
+                "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj"
+              },
+              "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj": {
+                "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj",
+        "projectName": "UnityEngine.TestRunner",
+        "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj",
+        "packagesPath": "C:\\Users\\om3g4\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\om3g4\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj",
+        "projectName": "UnityEngine.UI",
+        "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj",
+        "packagesPath": "C:\\Users\\om3g4\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\om3g4\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

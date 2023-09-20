@@ -88,9 +88,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.csproj",
-      "projectName": "Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection",
-      "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.csproj",
+      "projectUniqueName": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.EditorCoroutines.Editor.csproj",
+      "projectName": "Unity.EditorCoroutines.Editor",
+      "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.EditorCoroutines.Editor.csproj",
       "packagesPath": "C:\\Users\\om3g4\\.nuget\\packages\\",
       "outputPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\obj\\",
       "projectStyle": "PackageReference",
