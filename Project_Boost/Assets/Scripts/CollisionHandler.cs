@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
@@ -16,10 +17,18 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Standing on friendly platform");
                 break;
             
+            // Defaults to the player hitting a differe object
             default:
-                Debug.Log("Hit Object");
+                ReloadLevel();
                 break;
 
         }
+    }
+
+    // Reloads Scene after hitting an object 
+    void ReloadLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }
