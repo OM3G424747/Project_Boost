@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+
+    // Allows script to run and play effects while the player has not crashed and the value is set to true 
+    public bool notCrashed = true;
+    public bool hasLanded = false;
 
     // Sets thrust force being applied to rocket
     [SerializeField] float mainThrust = 100f;
@@ -29,8 +34,26 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProcessThrust();
-        ProcessRotation();
+        // Allows the player control as long as they have not crashed
+        if (notCrashed && !hasLanded)
+        {
+            ProcessThrust();
+            ProcessRotation();
+        }
+        // If the rocket has rashed the audio is turned down 
+        else if(hasLanded)
+        {
+            // Adjusts volume down after landing 
+            AdjustVolume(false);
+
+        } 
+        else 
+        {
+            // TODO - Play audio of rocket crashing 
+            AdjustVolume(notCrashed);
+        }
+
+
     }
 
     void ProcessThrust()

@@ -5,12 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    // Stores rocket movement component
+    Movement movement;
+    [SerializeField] float reloadLevelDelay = 3f;
+    [SerializeField] float loadNextLevelDelay = 3f;
+
+    void Start()
+    {
+        // Accesses component at the start of the level load.
+        movement = GetComponent<Movement>();
+    }
+
+
     void OnCollisionEnter(Collision other)
     {
         switch (other.gameObject.tag)
         {
             case "Finish":
-                LoadNextLevel();
+                StartLanding();
                 break;
 
             case "Friendly":
@@ -19,15 +31,37 @@ public class CollisionHandler : MonoBehaviour
             
             // Defaults to the player hitting a differe object
             default:
-                ReloadLevel();
+                StartCrash();
                 break;
 
         }
     }
 
+    // Used to call methods associated with the player crashing the rocket
+    void StartCrash()
+    {
+        // disables movement and loads level again
+        movement.notCrashed = false;
+        //movement.enabled = false;
+        Invoke( "ReloadLevel", reloadLevelDelay);
+
+    }
+
+    void StartLanding()
+    {
+        
+        // disables movement and loads next level
+        movement.notCrashed = false;
+        //movement.enabled = false;
+        Invoke( "LoadNextLevel", loadNextLevelDelay);
+
+    }
+
     // Reloads Scene after hitting an object 
     void ReloadLevel()
     {
+        //TODO -- Play particle effects and explosion
+
         // Sets index of current level in build
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         // Reloads the current scene
@@ -37,6 +71,8 @@ public class CollisionHandler : MonoBehaviour
     // Loads next level after hitting the finish
     void LoadNextLevel()
     {
+        //TODO -- Play success sound effect and fireworks / particle effects
+
         // Sets index of next level in build
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
