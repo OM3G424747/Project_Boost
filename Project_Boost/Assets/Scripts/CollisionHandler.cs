@@ -9,11 +9,16 @@ public class CollisionHandler : MonoBehaviour
     Movement movement;
     [SerializeField] float reloadLevelDelay = 3f;
     [SerializeField] float loadNextLevelDelay = 3f;
+    [SerializeField] AudioClip crashImpact;
+    [SerializeField] AudioClip levelPass;
+
+    AudioSource rocketFXSound;
 
     void Start()
     {
         // Accesses component at the start of the level load.
         movement = GetComponent<Movement>();
+        rocketFXSound = GetComponent<AudioSource>();
     }
 
 
@@ -31,6 +36,7 @@ public class CollisionHandler : MonoBehaviour
             
             // Defaults to the player hitting a differe object
             default:
+                // Crash audio clip and disables player controls
                 StartCrash();
                 break;
 
@@ -40,9 +46,16 @@ public class CollisionHandler : MonoBehaviour
     // Used to call methods associated with the player crashing the rocket
     void StartCrash()
     {
-        // disables movement and loads level again
+
+        // TODO - Randomize sounds and adjust according to speed of impact
+
+        // Disables movement and loads level again
         movement.notCrashed = false;
-        //movement.enabled = false;
+        // Stops all other audio clips, adjusts volume and plays crash audio
+        rocketFXSound.Stop();
+        rocketFXSound.volume = 1f;
+        rocketFXSound.PlayOneShot(crashImpact, 1f);
+        // Movement.enabled = false;
         Invoke( "ReloadLevel", reloadLevelDelay);
 
     }

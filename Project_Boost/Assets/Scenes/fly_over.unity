@@ -309,23 +309,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -0.008, y: -0.308, z: -0.578}
---- !u!1 &1743374320 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8851166171686380418, guid: 52e70804ca0f1494994b45cdcc53329a, type: 3}
-  m_PrefabInstance: {fileID: 5821686094140875251}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1743374328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743374320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e68c43307613d8449c76cba6da472b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1925693371242073741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -456,10 +439,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1836111027004006236, guid: 52e70804ca0f1494994b45cdcc53329a, type: 3}
-      propertyPath: volumeIncrementRate
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5898376617733360441, guid: 52e70804ca0f1494994b45cdcc53329a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -39.840004
@@ -507,10 +486,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8851166171686380418, guid: 52e70804ca0f1494994b45cdcc53329a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1743374328}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52e70804ca0f1494994b45cdcc53329a, type: 3}
 --- !u!1001 &9170694128795696623
 PrefabInstance:

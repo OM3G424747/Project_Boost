@@ -6,20 +6,22 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
 
-    // Allows script to run and play effects while the player has not crashed and the value is set to true 
-    public bool notCrashed = true;
-    public bool hasLanded = false;
-
     // Sets thrust force being applied to rocket
     [SerializeField] float mainThrust = 100f;
     [SerializeField] float turnSpeed = 100f;
     // Set Value to How quickly the rocket audio should ramp up to max
     [SerializeField] float volumeIncrementRate = 1f;
-    float rocketSoundVolume = 0f;
+
+    [SerializeField] AudioClip mainEngine;
 
     // Stores rocket's RigidBody component to apply movement to it
     Rigidbody rb;
     AudioSource rocketSound;
+
+    // Allows script to run and play effects while the player has not crashed and the value is set to true 
+    public bool notCrashed = true;
+    public bool hasLanded = false;
+    float rocketSoundVolume = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -47,11 +49,6 @@ public class Movement : MonoBehaviour
             AdjustVolume(false);
 
         } 
-        else 
-        {
-            // TODO - Play audio of rocket crashing 
-            AdjustVolume(notCrashed);
-        }
 
 
     }
@@ -145,7 +142,7 @@ public class Movement : MonoBehaviour
         // Alternatively confirms if audio is not playing to play it
         if(rocketSoundVolume != 0 && !rocketSound.isPlaying)
         {
-            rocketSound.Play();
+            rocketSound.PlayOneShot(mainEngine);
         }
         else if (rocketSoundVolume == 0 && rocketSound.isPlaying)
         {
