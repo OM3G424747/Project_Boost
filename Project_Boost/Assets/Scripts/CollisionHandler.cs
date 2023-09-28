@@ -43,18 +43,17 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
+    //TODO - Update to not play a crash or a success if one or the other has been triggered
+
     // Used to call methods associated with the player crashing the rocket
     void StartCrash()
     {
-
         // TODO - Randomize sounds and adjust according to speed of impact
 
         // Disables movement and loads level again
         movement.notCrashed = false;
         // Stops all other audio clips, adjusts volume and plays crash audio
-        rocketFXSound.Stop();
-        rocketFXSound.volume = 1f;
-        rocketFXSound.PlayOneShot(crashImpact, 1f);
+        PlayOnlySelectedAudio(crashImpact, 1f);
         // Movement.enabled = false;
         Invoke( "ReloadLevel", reloadLevelDelay);
 
@@ -65,6 +64,8 @@ public class CollisionHandler : MonoBehaviour
         
         // disables movement and loads next level
         movement.notCrashed = false;
+        // Stops all other audio clips, adjusts volume and plays success audio tone
+        PlayOnlySelectedAudio(levelPass, 1f);
         //movement.enabled = false;
         Invoke( "LoadNextLevel", loadNextLevelDelay);
 
@@ -97,6 +98,14 @@ public class CollisionHandler : MonoBehaviour
         }
         // Loads next scene
         SceneManager.LoadScene(nextSceneIndex);
+    }
+
+    // Function halts all other audio clips being played and only plays single audio clip at selected audio level
+    void PlayOnlySelectedAudio(AudioClip audioClip, float audioLevel)
+    {
+        rocketFXSound.Stop();
+        rocketFXSound.volume = audioLevel;
+        rocketFXSound.PlayOneShot(audioClip, audioLevel);
     }
 
 }

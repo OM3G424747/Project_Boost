@@ -2,6 +2,228 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.1": {
+      "Unity.Services.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "UnityEditor.UI": "1.0.0",
+          "UnityEngine.UI": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Services.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Services.Core.dll": {}
+        }
+      },
+      "Unity.Services.Core.Configuration/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.Services.Core": "1.0.0",
+          "Unity.Services.Core.Internal": "1.0.0",
+          "UnityEditor.UI": "1.0.0",
+          "UnityEngine.UI": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Services.Core.Configuration.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Services.Core.Configuration.dll": {}
+        }
+      },
+      "Unity.Services.Core.Configuration.Editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.Services.Core": "1.0.0",
+          "Unity.Services.Core.Configuration": "1.0.0",
+          "Unity.Services.Core.Internal": "1.0.0",
+          "UnityEditor.TestRunner": "1.0.0",
+          "UnityEditor.UI": "1.0.0",
+          "UnityEngine.TestRunner": "1.0.0",
+          "UnityEngine.UI": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Services.Core.Configuration.Editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Services.Core.Configuration.Editor.dll": {}
+        }
+      },
+      "Unity.Services.Core.Device/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.Services.Core.Internal": "1.0.0",
+          "UnityEditor.UI": "1.0.0",
+          "UnityEngine.UI": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Services.Core.Device.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Services.Core.Device.dll": {}
+        }
+      },
+      "Unity.Services.Core.Editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.Services.Core": "1.0.0",
+          "Unity.Services.Core.Configuration": "1.0.0",
+          "Unity.Services.Core.Configuration.Editor": "1.0.0",
+          "Unity.Services.Core.Environments": "1.0.0",
+          "Unity.Services.Core.Internal": "1.0.0",
+          "Unity.Services.Core.Networking": "1.0.0",
+          "Unity.Services.Core.Registration": "1.0.0",
+          "Unity.Services.Core.Scheduler": "1.0.0",
+          "Unity.Services.Core.Telemetry": "1.0.0",
+          "UnityEditor.TestRunner": "1.0.0",
+          "UnityEditor.UI": "1.0.0",
+          "UnityEngine.TestRunner": "1.0.0",
+          "UnityEngine.UI": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Services.Core.Editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Services.Core.Editor.dll": {}
+        }
+      },
+      "Unity.Services.Core.Environments/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.Services.Core": "1.0.0",
+          "Unity.Services.Core.Internal": "1.0.0",
+          "UnityEditor.UI": "1.0.0",
+          "UnityEngine.UI": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Services.Core.Environments.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Services.Core.Environments.dll": {}
+        }
+      },
+      "Unity.Services.Core.Environments.Internal/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.Services.Core.Internal": "1.0.0",
+          "UnityEditor.UI": "1.0.0",
+          "UnityEngine.UI": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Services.Core.Environments.Internal.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Services.Core.Environments.Internal.dll": {}
+        }
+      },
+      "Unity.Services.Core.Internal/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.Services.Core": "1.0.0",
+          "UnityEditor.UI": "1.0.0",
+          "UnityEngine.UI": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Services.Core.Internal.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Services.Core.Internal.dll": {}
+        }
+      },
+      "Unity.Services.Core.Networking/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.Services.Core": "1.0.0",
+          "Unity.Services.Core.Internal": "1.0.0",
+          "UnityEditor.UI": "1.0.0",
+          "UnityEngine.UI": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Services.Core.Networking.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Services.Core.Networking.dll": {}
+        }
+      },
+      "Unity.Services.Core.Registration/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.Services.Core": "1.0.0",
+          "Unity.Services.Core.Configuration": "1.0.0",
+          "Unity.Services.Core.Device": "1.0.0",
+          "Unity.Services.Core.Environments": "1.0.0",
+          "Unity.Services.Core.Environments.Internal": "1.0.0",
+          "Unity.Services.Core.Internal": "1.0.0",
+          "Unity.Services.Core.Scheduler": "1.0.0",
+          "Unity.Services.Core.Telemetry": "1.0.0",
+          "Unity.Services.Core.Threading": "1.0.0",
+          "UnityEditor.UI": "1.0.0",
+          "UnityEngine.UI": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Services.Core.Registration.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Services.Core.Registration.dll": {}
+        }
+      },
+      "Unity.Services.Core.Scheduler/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.Services.Core": "1.0.0",
+          "Unity.Services.Core.Internal": "1.0.0",
+          "UnityEditor.UI": "1.0.0",
+          "UnityEngine.UI": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Services.Core.Scheduler.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Services.Core.Scheduler.dll": {}
+        }
+      },
+      "Unity.Services.Core.Telemetry/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.Services.Core": "1.0.0",
+          "Unity.Services.Core.Internal": "1.0.0",
+          "UnityEditor.UI": "1.0.0",
+          "UnityEngine.UI": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Services.Core.Telemetry.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Services.Core.Telemetry.dll": {}
+        }
+      },
+      "Unity.Services.Core.Threading/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.Services.Core": "1.0.0",
+          "Unity.Services.Core.Internal": "1.0.0",
+          "UnityEditor.UI": "1.0.0",
+          "UnityEngine.UI": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Services.Core.Threading.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Services.Core.Threading.dll": {}
+        }
+      },
       "UnityEditor.TestRunner/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -53,6 +275,71 @@
     }
   },
   "libraries": {
+    "Unity.Services.Core/1.0.0": {
+      "type": "project",
+      "path": "Unity.Services.Core.csproj",
+      "msbuildProject": "Unity.Services.Core.csproj"
+    },
+    "Unity.Services.Core.Configuration/1.0.0": {
+      "type": "project",
+      "path": "Unity.Services.Core.Configuration.csproj",
+      "msbuildProject": "Unity.Services.Core.Configuration.csproj"
+    },
+    "Unity.Services.Core.Configuration.Editor/1.0.0": {
+      "type": "project",
+      "path": "Unity.Services.Core.Configuration.Editor.csproj",
+      "msbuildProject": "Unity.Services.Core.Configuration.Editor.csproj"
+    },
+    "Unity.Services.Core.Device/1.0.0": {
+      "type": "project",
+      "path": "Unity.Services.Core.Device.csproj",
+      "msbuildProject": "Unity.Services.Core.Device.csproj"
+    },
+    "Unity.Services.Core.Editor/1.0.0": {
+      "type": "project",
+      "path": "Unity.Services.Core.Editor.csproj",
+      "msbuildProject": "Unity.Services.Core.Editor.csproj"
+    },
+    "Unity.Services.Core.Environments/1.0.0": {
+      "type": "project",
+      "path": "Unity.Services.Core.Environments.csproj",
+      "msbuildProject": "Unity.Services.Core.Environments.csproj"
+    },
+    "Unity.Services.Core.Environments.Internal/1.0.0": {
+      "type": "project",
+      "path": "Unity.Services.Core.Environments.Internal.csproj",
+      "msbuildProject": "Unity.Services.Core.Environments.Internal.csproj"
+    },
+    "Unity.Services.Core.Internal/1.0.0": {
+      "type": "project",
+      "path": "Unity.Services.Core.Internal.csproj",
+      "msbuildProject": "Unity.Services.Core.Internal.csproj"
+    },
+    "Unity.Services.Core.Networking/1.0.0": {
+      "type": "project",
+      "path": "Unity.Services.Core.Networking.csproj",
+      "msbuildProject": "Unity.Services.Core.Networking.csproj"
+    },
+    "Unity.Services.Core.Registration/1.0.0": {
+      "type": "project",
+      "path": "Unity.Services.Core.Registration.csproj",
+      "msbuildProject": "Unity.Services.Core.Registration.csproj"
+    },
+    "Unity.Services.Core.Scheduler/1.0.0": {
+      "type": "project",
+      "path": "Unity.Services.Core.Scheduler.csproj",
+      "msbuildProject": "Unity.Services.Core.Scheduler.csproj"
+    },
+    "Unity.Services.Core.Telemetry/1.0.0": {
+      "type": "project",
+      "path": "Unity.Services.Core.Telemetry.csproj",
+      "msbuildProject": "Unity.Services.Core.Telemetry.csproj"
+    },
+    "Unity.Services.Core.Threading/1.0.0": {
+      "type": "project",
+      "path": "Unity.Services.Core.Threading.csproj",
+      "msbuildProject": "Unity.Services.Core.Threading.csproj"
+    },
     "UnityEditor.TestRunner/1.0.0": {
       "type": "project",
       "path": "UnityEditor.TestRunner.csproj",
@@ -76,7 +363,13 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
+      "Unity.Services.Core.Configuration.Editor >= 1.0.0",
+      "Unity.Services.Core.Editor >= 1.0.0",
+      "Unity.Services.Core.Environments >= 1.0.0",
+      "Unity.Services.Core.Internal >= 1.0.0",
+      "UnityEditor.TestRunner >= 1.0.0",
       "UnityEditor.UI >= 1.0.0",
+      "UnityEngine.TestRunner >= 1.0.0",
       "UnityEngine.UI >= 1.0.0"
     ]
   },
@@ -86,9 +379,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.VisualScripting.Core.csproj",
-      "projectName": "Unity.VisualScripting.Core",
-      "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.VisualScripting.Core.csproj",
+      "projectUniqueName": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.Services.Core.Environments.Editor.csproj",
+      "projectName": "Unity.Services.Core.Environments.Editor",
+      "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.Services.Core.Environments.Editor.csproj",
       "packagesPath": "C:\\Users\\om3g4\\.nuget\\packages\\",
       "outputPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\obj\\",
       "projectStyle": "PackageReference",
@@ -105,8 +398,26 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "projectReferences": {
+            "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.Services.Core.Configuration.Editor.csproj": {
+              "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.Services.Core.Configuration.Editor.csproj"
+            },
+            "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.Services.Core.Editor.csproj": {
+              "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.Services.Core.Editor.csproj"
+            },
+            "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.Services.Core.Environments.csproj": {
+              "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.Services.Core.Environments.csproj"
+            },
+            "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.Services.Core.Internal.csproj": {
+              "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.Services.Core.Internal.csproj"
+            },
+            "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.TestRunner.csproj": {
+              "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.TestRunner.csproj"
+            },
             "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.UI.csproj": {
               "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.UI.csproj"
+            },
+            "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj": {
+              "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj"
             },
             "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj": {
               "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj"

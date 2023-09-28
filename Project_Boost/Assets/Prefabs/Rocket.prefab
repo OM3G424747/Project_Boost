@@ -265,4 +265,4 @@ MonoBehaviour:
   reloadLevelDelay: 3
   loadNextLevelDelay: 3
   crashImpact: {fileID: 8300000, guid: d393b947a4a799840bff676e74595ea3, type: 3}
-  levelPass: {fileID: 0}
+  levelPass: {fileID: 8300000, guid: 034884281e65e90478b0b9f2027ebbee, type: 3}

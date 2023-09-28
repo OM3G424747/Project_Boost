@@ -11,7 +11,6 @@ public class Movement : MonoBehaviour
     [SerializeField] float turnSpeed = 100f;
     // Set Value to How quickly the rocket audio should ramp up to max
     [SerializeField] float volumeIncrementRate = 1f;
-
     [SerializeField] AudioClip mainEngine;
 
     // Stores rocket's RigidBody component to apply movement to it
