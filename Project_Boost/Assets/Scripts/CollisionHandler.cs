@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 public class CollisionHandler : MonoBehaviour
 {
     // Stores rocket movement component
@@ -14,6 +16,9 @@ public class CollisionHandler : MonoBehaviour
 
     AudioSource rocketFXSound;
 
+    // Confirms if the player has landed or crashed to prevent additional audio
+    bool isTransitioning = false;
+
     void Start()
     {
         // Accesses component at the start of the level load.
@@ -24,6 +29,10 @@ public class CollisionHandler : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        // Confirms players hasn't touched any other objects before
+        // Skips switch statement if true.
+        if (isTransitioning){return;}
+
         switch (other.gameObject.tag)
         {
             case "Finish":
@@ -37,7 +46,7 @@ public class CollisionHandler : MonoBehaviour
             // Defaults to the player hitting a differe object
             default:
                 // Crash audio clip and disables player controls
-                StartCrash();
+                    StartCrash();
                 break;
 
         }
@@ -50,6 +59,7 @@ public class CollisionHandler : MonoBehaviour
     {
         // TODO - Randomize sounds and adjust according to speed of impact
 
+        isTransitioning = true;
         // Disables movement and loads level again
         movement.notCrashed = false;
         // Stops all other audio clips, adjusts volume and plays crash audio
@@ -61,7 +71,7 @@ public class CollisionHandler : MonoBehaviour
 
     void StartLanding()
     {
-        
+        isTransitioning = true;
         // disables movement and loads next level
         movement.notCrashed = false;
         // Stops all other audio clips, adjusts volume and plays success audio tone

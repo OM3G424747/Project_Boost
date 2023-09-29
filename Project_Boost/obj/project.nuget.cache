@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4XFK8gTLO6+IiqKnsN+Lplk6aLe0blAS5AZYxErZpHkHe9jRoy2SDU1K6kxaDwaZk5o9x1Ynw6J/dy4TD4AQ7w==",
+  "dgSpecHash": "P7Wbp8VH95LdtXAUx3x5/Jc7BB64iPi+nzEhvf9sQurOJtHLe0HIIDS4pChU9lVU4qoi7ApVcF/GAfMrb6ObYg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.Services.Core.Environments.Editor.csproj",
+  "projectFilePath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.XR.LegacyInputHelpers.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
