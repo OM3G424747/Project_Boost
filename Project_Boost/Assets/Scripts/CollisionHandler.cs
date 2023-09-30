@@ -43,6 +43,10 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Standing on friendly platform");
                 break;
             
+            case "Ship Body":
+                // skipping due to only touching ship body
+                break;
+            
             // Defaults to the player hitting a differe object
             default:
                 // Crash audio clip and disables player controls
@@ -117,5 +121,6 @@ public class CollisionHandler : MonoBehaviour
         rocketFXSound.volume = audioLevel;
         rocketFXSound.PlayOneShot(audioClip, audioLevel);
     }
+
 
 }
