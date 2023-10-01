@@ -7,14 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
-    // Stores rocket movement component
-    Movement movement;
+
     [SerializeField] float reloadLevelDelay = 3f;
     [SerializeField] float loadNextLevelDelay = 3f;
     [SerializeField] AudioClip crashImpact;
     [SerializeField] AudioClip levelPass;
 
+    // Stores rocket movement component, sound and collider
+    Movement movement;
     AudioSource rocketFXSound;
+    Collider[] hitBox;
 
     // Confirms if the player has landed or crashed to prevent additional audio
     bool isTransitioning = false;
@@ -24,6 +26,8 @@ public class CollisionHandler : MonoBehaviour
         // Accesses component at the start of the level load.
         movement = GetComponent<Movement>();
         rocketFXSound = GetComponent<AudioSource>();
+        // Gets array of colliders
+        hitBox = GetComponents<Collider>();
     }
 
 
@@ -43,14 +47,16 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Standing on friendly platform");
                 break;
             
-            case "Ship Body":
-                // skipping due to only touching ship body
-                break;
-            
             // Defaults to the player hitting a differe object
             default:
                 // Crash audio clip and disables player controls
-                    StartCrash();
+                StartCrash();
+                // Loops over colliders and dissables them
+                foreach (Collider col in hitBox)
+                {
+                    Debug.Log("Disabled Col");
+                    col.enabled = false;
+                }
                 break;
 
         }
@@ -70,6 +76,23 @@ public class CollisionHandler : MonoBehaviour
         PlayOnlySelectedAudio(crashImpact, 1f);
         // Movement.enabled = false;
         Invoke( "ReloadLevel", reloadLevelDelay);
+
+        // Loops over colliders and dissables them
+        foreach (Collider col in hitBox)
+        {
+            Debug.Log("Disabled Col");
+            col.enabled = false;
+        }
+
+        // Stores ship's current movement
+        Vector3 parentLinearVelocity = GetComponent<Rigidbody>().velocity;
+        Vector3 parentAngularVelocity = GetComponent<Rigidbody>().angularVelocity;
+
+        // Inform all the child cubes about the crash
+        foreach (CubeHandler cubeScript in GetComponentsInChildren<CubeHandler>())
+        {
+            cubeScript.CrashDetected(parentLinearVelocity, parentAngularVelocity);
+        }
 
     }
 
