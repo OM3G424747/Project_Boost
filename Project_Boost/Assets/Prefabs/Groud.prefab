@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7247810015344511757}
   - component: {fileID: 4113021256296209233}
   - component: {fileID: 4059487563404869322}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Groud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2669188639800639191}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000058114523}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -15, z: 0}
   m_LocalScale: {x: 100, y: 30, z: 20}
   m_ConstrainProportionsScale: 0

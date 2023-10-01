@@ -18,6 +18,16 @@ public class CollisionHandler : MonoBehaviour
     AudioSource rocketFXSound;
     Collider[] hitBox;
 
+    // Stores most recent vectors to maintain velocity of cubes on impact
+    Vector3 previousLinearVelocity;
+    Vector3 previousAngularVelocity;
+    Vector3 direction;
+    RaycastHit hitInfo;
+    float distance;
+    float sphereRadius;
+    float scaleFactor;
+    int untaggedLayerMask;
+
     // Confirms if the player has landed or crashed to prevent additional audio
     bool isTransitioning = false;
 
@@ -28,6 +38,33 @@ public class CollisionHandler : MonoBehaviour
         rocketFXSound = GetComponent<AudioSource>();
         // Gets array of colliders
         hitBox = GetComponents<Collider>();
+        // calculate sphere radius for rocket collision detection
+        scaleFactor = transform.localScale.x;
+        sphereRadius = GetComponent<Collider>().bounds.extents.magnitude * scaleFactor;
+        untaggedLayerMask = LayerMask.GetMask("UntaggedObjects");
+
+    }
+
+    void Update()
+    {
+        // Update the previous velocities with the current velocities
+        previousLinearVelocity = GetComponent<Rigidbody>().velocity;
+        previousAngularVelocity = GetComponent<Rigidbody>().angularVelocity;
+        // Calculate the direction and distance based on the rocket's velocity
+        direction = GetComponent<Rigidbody>().velocity.normalized;
+        distance = GetComponent<Rigidbody>().velocity.magnitude * Time.fixedDeltaTime;
+
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, sphereRadius, untaggedLayerMask);
+        if (hitColliders.Length > 0)
+        {
+            if (!isTransitioning)
+            {
+                StartCrash();
+            }
+        }
+
+        // Implements sphereCast collision for object
+        spherecastCollision();
     }
 
 
@@ -51,16 +88,11 @@ public class CollisionHandler : MonoBehaviour
             default:
                 // Crash audio clip and disables player controls
                 StartCrash();
-                // Loops over colliders and dissables them
-                foreach (Collider col in hitBox)
-                {
-                    Debug.Log("Disabled Col");
-                    col.enabled = false;
-                }
                 break;
 
         }
     }
+
 
     //TODO - Update to not play a crash or a success if one or the other has been triggered
 
@@ -80,18 +112,13 @@ public class CollisionHandler : MonoBehaviour
         // Loops over colliders and dissables them
         foreach (Collider col in hitBox)
         {
-            Debug.Log("Disabled Col");
             col.enabled = false;
         }
-
-        // Stores ship's current movement
-        Vector3 parentLinearVelocity = GetComponent<Rigidbody>().velocity;
-        Vector3 parentAngularVelocity = GetComponent<Rigidbody>().angularVelocity;
 
         // Inform all the child cubes about the crash
         foreach (CubeHandler cubeScript in GetComponentsInChildren<CubeHandler>())
         {
-            cubeScript.CrashDetected(parentLinearVelocity, parentAngularVelocity);
+            cubeScript.CrashDetected(previousLinearVelocity, previousAngularVelocity, scaleFactor);
         }
 
     }
@@ -145,5 +172,20 @@ public class CollisionHandler : MonoBehaviour
         rocketFXSound.PlayOneShot(audioClip, audioLevel);
     }
 
-
+    // checks if a collision is immenent with a specific object
+    void spherecastCollision(){
+        // Check if there's an imminent collision
+        if (Physics.SphereCast(transform.position, sphereRadius, direction, out hitInfo, distance, untaggedLayerMask))
+        {
+            // Check if the detected object is untagged or another category you want to trigger the effect on
+            if (hitInfo.collider.gameObject.CompareTag("Untagged"))
+            {
+                // Invoke your crash method here, but make sure not to repeat it unnecessarily
+                if (!isTransitioning)
+                {
+                    StartCrash();
+                }
+            }
+        }
+    }
 }
