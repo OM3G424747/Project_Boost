@@ -5,12 +5,13 @@ using UnityEngine;
 public class CubeHandler : MonoBehaviour
 {
     Rigidbody rb;
+    Collider collide;
+    float cubeSize; 
 
     // Start is called before the first frame update
     void Start()
     {
-
-
+        collide = GetComponent<Collider>();
     }
 
 
@@ -28,8 +29,6 @@ public class CubeHandler : MonoBehaviour
         if (rb == null)
         {
             rb = gameObject.AddComponent<Rigidbody>();
-            rb.solverIterations = 10;  // Default is 6
-            rb.solverVelocityIterations = 10;  // Default is 1
         }
 
         // Activate the Rigidbody's physics interactions
@@ -39,24 +38,15 @@ public class CubeHandler : MonoBehaviour
         rb.velocity = linearVelocity;
         rb.angularVelocity = angularVelocity;
         
-        rb.solverIterations = 20;  // Adjust to tweak physics checks 
-
-        
         // Cast a ray to check for imminent collisions
         Vector3 direction = linearVelocity.normalized;
         float distance = (linearVelocity * 1.5f).magnitude * Time.fixedDeltaTime;  // Predict a bit further than one frame
         
-        float cubeSize = GetComponent<Collider>().bounds.size.magnitude * scaleFactor;  // Getting cube size from collider bounds
+        cubeSize = collide.bounds.size.magnitude * scaleFactor;  // Getting cube size from collider bounds
         Vector3 frontOffset = 0.2f * cubeSize * direction;  // Calculate the offset to the cube's front
         Vector3 rayOrigin = transform.position + frontOffset;  // Set ray origin to the front of the cube
-
         RaycastHit hitInfo;
 
-        Debug.DrawRay(rayOrigin, direction*distance, Color.green, 10f); 
-        Debug.Log("CrashDetected method called");
-        Debug.Log($"Ray Origin: {rayOrigin}, Direction: {direction}, Distance: {distance}");
-
-        
         if (Physics.Raycast(rayOrigin, direction, out hitInfo, distance))
         {   
             
@@ -70,13 +60,12 @@ public class CubeHandler : MonoBehaviour
             else
             {
                 // Halfs velocity if an impact is imminent
-                rb.velocity = linearVelocity* 0.75f;
+                rb.velocity = linearVelocity* 0.90f;
             }
             
             // Set the Rigidbody properties
             rb.interpolation = RigidbodyInterpolation.Interpolate;
-            rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-            
+            rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
         }
         

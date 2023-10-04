@@ -13,7 +13,11 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] AudioClip crashImpact;
     [SerializeField] AudioClip levelPass;
 
+    [SerializeField] ParticleSystem successParticles;
+    [SerializeField] ParticleSystem crashParticles;
+
     // Stores rocket movement component, sound and collider
+    Rigidbody rb;
     Movement movement;
     AudioSource rocketFXSound;
     Collider[] hitBox;
@@ -21,18 +25,15 @@ public class CollisionHandler : MonoBehaviour
     // Stores most recent vectors to maintain velocity of cubes on impact
     Vector3 previousLinearVelocity;
     Vector3 previousAngularVelocity;
-    Vector3 direction;
-    RaycastHit hitInfo;
-    float distance;
-    float sphereRadius;
     float scaleFactor;
-    int untaggedLayerMask;
 
     // Confirms if the player has landed or crashed to prevent additional audio
     bool isTransitioning = false;
 
     void Start()
     {
+        // Gets Rigidbody for calculating velocity
+        rb = GetComponent<Rigidbody>();
         // Accesses component at the start of the level load.
         movement = GetComponent<Movement>();
         rocketFXSound = GetComponent<AudioSource>();
@@ -40,31 +41,14 @@ public class CollisionHandler : MonoBehaviour
         hitBox = GetComponents<Collider>();
         // calculate sphere radius for rocket collision detection
         scaleFactor = transform.localScale.x;
-        sphereRadius = GetComponent<Collider>().bounds.extents.magnitude * scaleFactor;
-        untaggedLayerMask = LayerMask.GetMask("UntaggedObjects");
-
     }
 
     void Update()
     {
         // Update the previous velocities with the current velocities
-        previousLinearVelocity = GetComponent<Rigidbody>().velocity;
-        previousAngularVelocity = GetComponent<Rigidbody>().angularVelocity;
-        // Calculate the direction and distance based on the rocket's velocity
-        direction = GetComponent<Rigidbody>().velocity.normalized;
-        distance = GetComponent<Rigidbody>().velocity.magnitude * Time.fixedDeltaTime;
+        previousLinearVelocity = rb.velocity;
+        previousAngularVelocity = rb.angularVelocity;
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, sphereRadius, untaggedLayerMask);
-        if (hitColliders.Length > 0)
-        {
-            if (!isTransitioning)
-            {
-                StartCrash();
-            }
-        }
-
-        // Implements sphereCast collision for object
-        spherecastCollision();
     }
 
 
@@ -72,6 +56,7 @@ public class CollisionHandler : MonoBehaviour
     {
         // Confirms players hasn't touched any other objects before
         // Skips switch statement if true.
+        
         if (isTransitioning){return;}
 
         switch (other.gameObject.tag)
@@ -106,10 +91,12 @@ public class CollisionHandler : MonoBehaviour
         movement.notCrashed = false;
         // Stops all other audio clips, adjusts volume and plays crash audio
         PlayOnlySelectedAudio(crashImpact, 1f);
+        // Plays explosion particles
+        crashParticles.Play();
         // Movement.enabled = false;
         Invoke( "ReloadLevel", reloadLevelDelay);
 
-        // Loops over colliders and dissables them
+        // Loops over colliders and dissables them for main ship body
         foreach (Collider col in hitBox)
         {
             col.enabled = false;
@@ -130,6 +117,8 @@ public class CollisionHandler : MonoBehaviour
         movement.notCrashed = false;
         // Stops all other audio clips, adjusts volume and plays success audio tone
         PlayOnlySelectedAudio(levelPass, 1f);
+        // Plays success particles after landing successfully
+        successParticles.Play();
         //movement.enabled = false;
         Invoke( "LoadNextLevel", loadNextLevelDelay);
 
@@ -172,20 +161,4 @@ public class CollisionHandler : MonoBehaviour
         rocketFXSound.PlayOneShot(audioClip, audioLevel);
     }
 
-    // checks if a collision is immenent with a specific object
-    void spherecastCollision(){
-        // Check if there's an imminent collision
-        if (Physics.SphereCast(transform.position, sphereRadius, direction, out hitInfo, distance, untaggedLayerMask))
-        {
-            // Check if the detected object is untagged or another category you want to trigger the effect on
-            if (hitInfo.collider.gameObject.CompareTag("Untagged"))
-            {
-                // Invoke your crash method here, but make sure not to repeat it unnecessarily
-                if (!isTransitioning)
-                {
-                    StartCrash();
-                }
-            }
-        }
-    }
 }
