@@ -2,54 +2,6 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.1": {
-      "Unity.AI.Navigation/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "dependencies": {
-          "UnityEditor.UI": "1.0.0",
-          "UnityEngine.UI": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Unity.AI.Navigation.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Unity.AI.Navigation.dll": {}
-        }
-      },
-      "Unity.AI.Navigation.Editor/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "dependencies": {
-          "Unity.AI.Navigation": "1.0.0",
-          "Unity.AI.Navigation.Editor.ConversionSystem": "1.0.0",
-          "UnityEditor.TestRunner": "1.0.0",
-          "UnityEditor.UI": "1.0.0",
-          "UnityEngine.TestRunner": "1.0.0",
-          "UnityEngine.UI": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Unity.AI.Navigation.Editor.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Unity.AI.Navigation.Editor.dll": {}
-        }
-      },
-      "Unity.AI.Navigation.Editor.ConversionSystem/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "dependencies": {
-          "UnityEditor.TestRunner": "1.0.0",
-          "UnityEditor.UI": "1.0.0",
-          "UnityEngine.TestRunner": "1.0.0",
-          "UnityEngine.UI": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Unity.AI.Navigation.Editor.ConversionSystem.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Unity.AI.Navigation.Editor.ConversionSystem.dll": {}
-        }
-      },
       "UnityEditor.TestRunner/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -101,21 +53,6 @@
     }
   },
   "libraries": {
-    "Unity.AI.Navigation/1.0.0": {
-      "type": "project",
-      "path": "Unity.AI.Navigation.csproj",
-      "msbuildProject": "Unity.AI.Navigation.csproj"
-    },
-    "Unity.AI.Navigation.Editor/1.0.0": {
-      "type": "project",
-      "path": "Unity.AI.Navigation.Editor.csproj",
-      "msbuildProject": "Unity.AI.Navigation.Editor.csproj"
-    },
-    "Unity.AI.Navigation.Editor.ConversionSystem/1.0.0": {
-      "type": "project",
-      "path": "Unity.AI.Navigation.Editor.ConversionSystem.csproj",
-      "msbuildProject": "Unity.AI.Navigation.Editor.ConversionSystem.csproj"
-    },
     "UnityEditor.TestRunner/1.0.0": {
       "type": "project",
       "path": "UnityEditor.TestRunner.csproj",
@@ -139,12 +76,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
-      "Unity.AI.Navigation >= 1.0.0",
-      "Unity.AI.Navigation.Editor >= 1.0.0",
-      "Unity.AI.Navigation.Editor.ConversionSystem >= 1.0.0",
-      "UnityEditor.TestRunner >= 1.0.0",
       "UnityEditor.UI >= 1.0.0",
-      "UnityEngine.TestRunner >= 1.0.0",
       "UnityEngine.UI >= 1.0.0"
     ]
   },
@@ -154,11 +86,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.AI.Navigation.Updater.csproj",
-      "projectName": "Unity.AI.Navigation.Updater",
-      "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.AI.Navigation.Updater.csproj",
+      "projectUniqueName": "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.VisualScripting.Core.csproj",
+      "projectName": "Unity.VisualScripting.Core",
+      "projectPath": "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.VisualScripting.Core.csproj",
       "packagesPath": "C:\\Users\\om3g4\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\obj\\",
+      "outputPath": "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\om3g4\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -173,26 +105,11 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "projectReferences": {
-            "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.AI.Navigation.csproj": {
-              "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.AI.Navigation.csproj"
+            "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.UI.csproj": {
+              "projectPath": "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.UI.csproj"
             },
-            "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.AI.Navigation.Editor.ConversionSystem.csproj": {
-              "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.AI.Navigation.Editor.ConversionSystem.csproj"
-            },
-            "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.AI.Navigation.Editor.csproj": {
-              "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.AI.Navigation.Editor.csproj"
-            },
-            "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.TestRunner.csproj": {
-              "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.TestRunner.csproj"
-            },
-            "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.UI.csproj": {
-              "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.UI.csproj"
-            },
-            "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj": {
-              "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj"
-            },
-            "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj": {
-              "projectPath": "c:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj"
+            "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj": {
+              "projectPath": "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj"
             }
           }
         }

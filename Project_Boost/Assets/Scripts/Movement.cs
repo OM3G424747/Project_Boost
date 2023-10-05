@@ -13,6 +13,10 @@ public class Movement : MonoBehaviour
     [SerializeField] float volumeIncrementRate = 1f;
     [SerializeField] AudioClip mainEngine;
 
+    [SerializeField] ParticleSystem mainThrustParticlesL;
+    [SerializeField] ParticleSystem mainThrustParticlesR;
+
+
     // Stores rocket's RigidBody component to apply movement to it
     Rigidbody rb;
     AudioSource rocketSound;
@@ -21,6 +25,10 @@ public class Movement : MonoBehaviour
     public bool notCrashed = true;
     public bool hasLanded = false;
     float rocketSoundVolume = 0f;
+    // Handles thruster particle states
+    bool fireLeftThrusterParticles = false;
+    bool fireRightThrusterParticles = false;
+    bool upThrustActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -38,21 +46,28 @@ public class Movement : MonoBehaviour
         // Allows the player control as long as they have not crashed
         if (notCrashed && !hasLanded)
         {
-            ProcessThrust();
-            ProcessRotation();
+            upThrustActive = ProcessThrust();
+            // stores side thrust particles 
+            var sideThrust = ProcessRotation();
+
+            // updates thruster bool values
+            fireRightThrusterParticles = upThrustActive || sideThrust.right;
+            fireLeftThrusterParticles = upThrustActive || sideThrust.left;
+
+            // Fires active thruster values
+            ThrustParticleHandler(fireLeftThrusterParticles, fireRightThrusterParticles);
         }
+
         // If the rocket has rashed the audio is turned down 
         else if(hasLanded)
         {
             // Adjusts volume down after landing 
             AdjustVolume(false);
-
         } 
-
-
     }
 
-    void ProcessThrust()
+    // Processes thrust based on keyboard input, returns bool based on input
+    bool ProcessThrust()
     {
         // Stores if the player hit the button for the rocket thrusters
         bool up = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space);
@@ -66,13 +81,13 @@ public class Movement : MonoBehaviour
             // Calculates ammount of relative upwards force to apply relative to the time elapsed since previous frame
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
             
-        } 
+        }  
         // Stalls rocket and allows it to fall down again if not applying force
 
-        
+        return up;
     }
 
-    void ProcessRotation()
+    (bool left, bool right) ProcessRotation()
     {
         bool left = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
         bool right = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
@@ -101,9 +116,40 @@ public class Movement : MonoBehaviour
             rb.freezeRotation = false;
         }
 
+        // returns bools based on current keyboard input
+        return (left, right);
+    }
+
+    // Fires thruster particles based on bool values
+    void ThrustParticleHandler(bool fireLeft, bool fireRight)
+    {
+        // confirms if the right booster should be fired or not
+        if (fireRight){
+            if (!mainThrustParticlesR.isPlaying ) 
+            {
+                mainThrustParticlesR.Play();
+            }
+        }
+        else
+        {
+            mainThrustParticlesR.Stop();
+        }
+        
+        // confirms if the left booster should be fired or not
+        if (fireLeft){
+            if (!mainThrustParticlesL.isPlaying && fireLeft) 
+            {
+                mainThrustParticlesL.Play();
+            }
+        }
+        else
+        {
+            mainThrustParticlesL.Stop();
+        }
     }
 
 
+    // Adjusts volume based on current input
     void AdjustVolume(bool isActive)
     {
         // Sets ammount to increment while active or not active based on time 
@@ -147,6 +193,5 @@ public class Movement : MonoBehaviour
         {
             rocketSound.Pause();
         }        
-
     }
 }
