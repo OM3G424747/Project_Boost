@@ -76,7 +76,9 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
+      "UnityEditor.TestRunner >= 1.0.0",
       "UnityEditor.UI >= 1.0.0",
+      "UnityEngine.TestRunner >= 1.0.0",
       "UnityEngine.UI >= 1.0.0"
     ]
   },
@@ -86,9 +88,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.VisualScripting.Core.csproj",
-      "projectName": "Unity.VisualScripting.Core",
-      "projectPath": "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.VisualScripting.Core.csproj",
+      "projectUniqueName": "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.Settings.Editor.csproj",
+      "projectName": "Unity.Settings.Editor",
+      "projectPath": "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\Unity.Settings.Editor.csproj",
       "packagesPath": "C:\\Users\\om3g4\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\obj\\",
       "projectStyle": "PackageReference",
@@ -105,8 +107,14 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "projectReferences": {
+            "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.TestRunner.csproj": {
+              "projectPath": "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.TestRunner.csproj"
+            },
             "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.UI.csproj": {
               "projectPath": "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEditor.UI.csproj"
+            },
+            "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj": {
+              "projectPath": "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.TestRunner.csproj"
             },
             "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj": {
               "projectPath": "C:\\Users\\om3g4\\Desktop\\Unity Projects\\Project-Boost\\Project_Boost\\UnityEngine.UI.csproj"
