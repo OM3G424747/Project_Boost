@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float mainThrust = 100f;
     [SerializeField] float turnSpeed = 100f;
     // Set Value to How quickly the rocket audio should ramp up to max
-    [SerializeField] float volumeIncrementRate = 1f;
+    [SerializeField] float volumeStepRate = 1f;
     [SerializeField] AudioClip mainEngine;
 
     [SerializeField] ParticleSystem mainThrustParticlesL;
@@ -29,6 +29,8 @@ public class Movement : MonoBehaviour
     bool fireLeftThrusterParticles = false;
     bool fireRightThrusterParticles = false;
     bool upThrustActive = false;
+    bool playThrustAudio = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,11 +55,14 @@ public class Movement : MonoBehaviour
             // updates thruster bool values
             fireRightThrusterParticles = upThrustActive || sideThrust.right;
             fireLeftThrusterParticles = upThrustActive || sideThrust.left;
+            playThrustAudio = fireRightThrusterParticles || fireLeftThrusterParticles;
 
             // Fires active thruster values
             ThrustParticleHandler(fireLeftThrusterParticles, fireRightThrusterParticles);
+            
+            // Plays sound effects based on if the player's thrusters are active or not
+            AdjustVolume(playThrustAudio);
         }
-
         // If the rocket has rashed the audio is turned down 
         else if(hasLanded)
         {
@@ -71,9 +76,6 @@ public class Movement : MonoBehaviour
     {
         // Stores if the player hit the button for the rocket thrusters
         bool up = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space);
-
-        // Adjusts audio effect volume based on player input
-        AdjustVolume(up);
 
         // Thusts rocket in the direction its pointed
         if(up)
@@ -146,6 +148,7 @@ public class Movement : MonoBehaviour
         {
             mainThrustParticlesL.Stop();
         }
+
     }
 
 
@@ -153,33 +156,33 @@ public class Movement : MonoBehaviour
     void AdjustVolume(bool isActive)
     {
         // Sets ammount to increment while active or not active based on time 
-        float incrementAmmount = volumeIncrementRate * Time.deltaTime;
+        float volumeStepAmmount = volumeStepRate * Time.deltaTime;
 
         if(isActive)
         {
             // Checks if volume will go over the max limit to the cap it
-            if(rocketSoundVolume + incrementAmmount > 1)
+            if (rocketSoundVolume + volumeStepAmmount > 1)
             {
                 rocketSoundVolume = 1;
             }
             else
             {
-                rocketSoundVolume += incrementAmmount;
+                rocketSoundVolume += volumeStepAmmount;
             }
         }
         else
         {
             // Checks if volume will go under the max limit to the cap it
-            if(rocketSoundVolume - incrementAmmount < 0)
+            if (rocketSoundVolume - volumeStepAmmount < 0)
             {
                 rocketSoundVolume = 0;
             }
             else
             {
-                rocketSoundVolume -= incrementAmmount;
+                rocketSoundVolume -= volumeStepAmmount;
             }
         }
-        
+
         // Plays audio with new set level
         rocketSound.volume = rocketSoundVolume;
         
@@ -194,4 +197,5 @@ public class Movement : MonoBehaviour
             rocketSound.Pause();
         }        
     }
+
 }

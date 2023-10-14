@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
 
+    [SerializeField] bool enableDebugKeys = true;
     [SerializeField] float reloadLevelDelay = 3f;
     [SerializeField] float loadNextLevelDelay = 3f;
     [SerializeField] AudioClip crashImpact;
@@ -26,6 +27,7 @@ public class CollisionHandler : MonoBehaviour
     Vector3 previousLinearVelocity;
     Vector3 previousAngularVelocity;
     float scaleFactor;
+    bool cheatsActive;
 
     // Confirms if the player has landed or crashed to prevent additional audio
     bool isTransitioning = false;
@@ -45,6 +47,8 @@ public class CollisionHandler : MonoBehaviour
 
     void Update()
     {
+        RespondToDebugKeys(enableDebugKeys);
+
         // Update the previous velocities with the current velocities
         previousLinearVelocity = rb.velocity;
         previousAngularVelocity = rb.angularVelocity;
@@ -52,12 +56,13 @@ public class CollisionHandler : MonoBehaviour
     }
 
 
+
     void OnCollisionEnter(Collision other)
     {
         // Confirms players hasn't touched any other objects before
         // Skips switch statement if true.
         
-        if (isTransitioning){return;}
+        if (isTransitioning || cheatsActive){return;}
 
         switch (other.gameObject.tag)
         {
@@ -159,6 +164,27 @@ public class CollisionHandler : MonoBehaviour
         rocketFXSound.Stop();
         rocketFXSound.volume = audioLevel;
         rocketFXSound.PlayOneShot(audioClip, audioLevel);
+    }
+
+    // Enables or disabled debug keys for game
+    void RespondToDebugKeys(bool isActive)
+    {
+        if(isActive)
+        {
+            // checks if L was pressed to load the next level
+            if (Input.GetKey(KeyCode.L))
+            {
+                // loads next level with zero delay
+                LoadNextLevel();
+            }
+
+            // checks if C was pressed to enable cheats
+            if (Input.GetKey(KeyCode.C))
+            {
+                // Toggels cheat mode active or dissables it
+                cheatsActive = !cheatsActive;
+            }
+        }
     }
 
 }
